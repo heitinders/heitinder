@@ -1,0 +1,15 @@
+:root {
+  --bg-base: #04040a;
+  --bg-surface: #0d0d1a;
+  --accent-primary: #6d28d9;
+  --accent-glow: #8b5cf6;
+  --accent-secondary: #22d3ee;
+  --accent-gold: #f59e0b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #64748b;
+  --text-muted: #334155;
+  --border: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.025);
+  --radius-card: 20px;
+  --blur-glass: 24px;
+}

@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+@import "./tokens.css";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  background: var(--bg-base);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(109, 40, 217, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(34, 211, 238, 0.06), transparent 35%),
+    radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.05), transparent 30%),
+    var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-inter), "Inter", sans-serif;
+}
+
+::selection {
+  background: rgba(109, 40, 217, 0.4);
+  color: #f1f5f9;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.035;
+  background-image: url("/grain.png");
+  background-size: 240px 240px;
+  will-change: transform;
+}
+
+* {
+  border-color: var(--border);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-glow);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.gradient-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--text-primary) 10%,
+    var(--accent-glow) 35%,
+    var(--accent-secondary) 50%,
+    var(--text-primary) 75%
+  );
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 7s linear infinite;
+}
+
+.glass-card {
+  background: rgba(13, 13, 26, 0.75);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  /* backdrop-filter removed — blur() is extremely expensive during scroll,
+     causing frame drops on every glass-card. Solid semi-transparent bg
+     gives the same dark-glass look without per-frame GPU blur cost. */
+}
+
+.animated-element {
+  will-change: transform;
+}
+
+.gpu-scroll-layer {
+  transform: translateZ(0);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -20% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .gradient-text {
+    animation: none;
+  }
+}
