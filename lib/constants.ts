@@ -66,7 +66,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "scalifai",
-    title: "ScaliFai",
+    title: "ScalifAI",
     url: "https://www.scalifai.app",
     description:
       "AI-powered business automation platform. AI assistants that answer calls, emails, and optimize digital marketing — all in one smart platform.",
@@ -75,6 +75,18 @@ export const PROJECTS: Project[] = [
     accentFrom: "#6d28d9",
     accentTo: "#4f46e5",
     image: "/scalifai.png",
+  },
+  {
+    id: "seo-ops-hub",
+    title: "SEO Ops Hub",
+    url: "https://seo-ops-hub.com",
+    description:
+      "Complete SEO operations platform. Onboard clients, run technical audits, generate content briefs, and ship deliverables — all from one AI-powered dashboard.",
+    role: "Founder & Full-Stack Developer",
+    tags: ["AI", "SaaS", "SEO", "Next.js", "Automation"],
+    accentFrom: "#14b8a6",
+    accentTo: "#3b82f6",
+    image: "/seo-ops-hub.png",
   },
 ];
 
@@ -152,7 +164,7 @@ export const STATS = [
     description: "Production launches spanning internal platforms, marketing sites, and SaaS apps.",
   },
   {
-    value: "4",
+    value: "5",
     label: "SaaS Products Built",
     description: "AI-enabled and workflow-centric products from concept to polished interfaces.",
   },
