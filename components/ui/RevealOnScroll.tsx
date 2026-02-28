@@ -22,7 +22,7 @@ export default function RevealOnScroll({
       ref={ref}
       className={cn(className)}
       variants={fadeInUp}
-      initial="hidden"
+      initial={prefersReducedMotion ? "visible" : "hidden"}
       animate={prefersReducedMotion ? "visible" : inView ? "visible" : "hidden"}
       layout={false}
     >

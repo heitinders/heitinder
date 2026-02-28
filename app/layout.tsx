@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 
 import "@/styles/globals.css";
 import Footer from "@/components/shared/Footer";
+import JsonLd from "@/components/shared/JsonLd";
 import Navbar from "@/components/shared/Navbar";
 import Preloader from "@/components/shared/Preloader";
 import { SmoothScrollProvider } from "@/components/shared/smooth-scroll-provider";
@@ -33,20 +34,24 @@ const faviconSvg = encodeURIComponent(`
 </svg>
 `);
 
+const siteDescription =
+  "Senior Frontend Engineer with 12+ years at Federal Reserve, BNY Mellon & Morgan Stanley. Building AI-powered SaaS products. Based in NYC/NJ, available globally.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://heitindersingh.dev"),
-  title: "Heitinder Singh | Senior Frontend Engineer",
-  description:
-    "Portfolio of Heitinder Singh — Senior Frontend Engineer building high-performance products, enterprise dashboards, and AI-powered web experiences.",
+  title: "Heitinder Singh | Senior Frontend Engineer, NYC — AI & Enterprise",
+  description: siteDescription,
+  alternates: {
+    canonical: "https://heitindersingh.dev",
+  },
   icons: {
     icon: [{ url: `data:image/svg+xml,${faviconSvg}` }],
   },
   openGraph: {
-    title: "Heitinder Singh | Senior Frontend Engineer",
-    description:
-      "Senior Frontend Engineer specializing in React, Next.js, Angular, and AI-powered product experiences.",
+    title: "Heitinder Singh | Senior Frontend Engineer, NYC",
+    description: siteDescription,
     url: "https://heitindersingh.dev",
-    siteName: "Heitinder Singh Portfolio",
+    siteName: "Heitinder Singh",
     type: "website",
     locale: "en_US",
     images: [
@@ -54,15 +59,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Heitinder Singh",
+        alt: "Heitinder Singh — Senior Frontend Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Heitinder Singh | Senior Frontend Engineer",
-    description:
-      "Frontend engineering, product craft, and AI-powered web experiences.",
+    title: "Heitinder Singh | Senior Frontend Engineer, NYC",
+    description: siteDescription,
     images: ["/og-image.png"],
   },
 };
@@ -80,6 +84,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetBrainsMono.variable} antialiased`}>
+        <JsonLd />
         <SmoothScrollProvider>
           <Preloader />
           <Navbar />

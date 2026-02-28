@@ -266,7 +266,7 @@ export default function Contact() {
             <a
               href="https://www.linkedin.com/in/heitinder-singh-23107718a/"
               target="_blank"
-              rel="noopener noreferrer"
+              rel="me noopener noreferrer"
 
               className={cn(
                 "inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-7 py-4 text-sm font-medium text-[var(--text-primary)]",
@@ -303,7 +303,7 @@ export default function Contact() {
                 key={item.label}
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
-                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                rel={item.href.startsWith("http") ? "me noopener noreferrer" : undefined}
                 aria-label={item.label}
 
                 className="text-[var(--text-muted)] transition duration-200 hover:scale-110 hover:text-[var(--text-primary)]"

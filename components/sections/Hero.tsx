@@ -175,7 +175,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        <motion.div
+        <motion.h1
           layout={false}
           className="mt-8"
           initial="hidden"
@@ -188,7 +188,7 @@ export default function Hero() {
           }}
         >
           {headlineLines.map((line, index) => (
-            <motion.div
+            <motion.span
               layout={false}
               key={line}
               variants={{
@@ -196,15 +196,15 @@ export default function Hero() {
                 visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
               }}
               className={cn(
-                "text-[clamp(3rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]",
+                "block text-[clamp(3rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]",
                 "font-[800] text-[var(--text-primary)]",
                 index === 2 && "gradient-text",
               )}
             >
               {line}
-            </motion.div>
+            </motion.span>
           ))}
-        </motion.div>
+        </motion.h1>
 
         <motion.p
           layout={false}

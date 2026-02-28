@@ -153,7 +153,7 @@ export default function ProjectCard(props: ProjectCardProps) {
             >
               <Image
                 src={image}
-                alt={`${title} screenshot`}
+                alt={`${title} – ${description.slice(0, 100)}`}
                 width={800}
                 height={450}
                 className="block w-full transition-transform duration-500 group-hover:scale-[1.03]"
