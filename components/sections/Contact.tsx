@@ -81,42 +81,80 @@ function MagneticLink() {
   );
 }
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<FormStatus>("idle");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    const name = data.get("name") as string;
-    const email = data.get("email") as string;
-    const message = data.get("message") as string;
+    setStatus("sending");
 
-    const subject = encodeURIComponent(`Project Inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Hi Heitinder,\n\n${message}\n\n— ${name}\n${email}`,
-    );
-    window.open(`mailto:heitinder.js@gmail.com?subject=${subject}&body=${body}`, "_self");
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/heitinder.js@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: new FormData(e.currentTarget).get("name"),
+          email: new FormData(e.currentTarget).get("email"),
+          message: new FormData(e.currentTarget).get("message"),
+          _subject: `Portfolio Inquiry from ${new FormData(e.currentTarget).get("name")}`,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setStatus("success");
+      formRef.current?.reset();
+    } catch {
+      setStatus("error");
+    }
   }, []);
 
+  if (status === "success") {
+    return (
+      <div className="flex w-full flex-col items-center gap-3 rounded-xl border border-emerald-400/20 bg-emerald-500/5 px-6 py-10">
+        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10">
+          <svg className="h-6 w-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <p className="text-lg font-semibold text-[var(--text-primary)]">Message sent!</p>
+        <p className="text-sm text-[var(--text-secondary)]">
+          Thanks for reaching out. I&apos;ll get back to you within 24 hours.
+        </p>
+        <button
+          type="button"
+          onClick={() => setStatus("idle")}
+          className="mt-2 text-sm text-[var(--accent-glow)] transition-colors hover:text-[var(--accent-secondary)]"
+        >
+          Send another message
+        </button>
+      </div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="w-full space-y-4">
+    <form ref={formRef} onSubmit={handleSubmit} className="w-full space-y-4">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
       <div className="grid gap-4 sm:grid-cols-2">
         <input
           type="text"
           name="name"
           required
           placeholder="Your name"
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none"
+          disabled={status === "sending"}
+          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
         />
         <input
           type="email"
           name="email"
           required
           placeholder="Your email"
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none"
+          disabled={status === "sending"}
+          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
         />
       </div>
       <textarea
@@ -124,13 +162,20 @@ function ContactForm() {
         required
         rows={4}
         placeholder="Tell me about your project..."
-        className="w-full resize-none rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none"
+        disabled={status === "sending"}
+        className="w-full resize-none rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
       />
+      {status === "error" && (
+        <p className="text-sm text-red-400">
+          Something went wrong. Please try again or email me directly.
+        </p>
+      )}
       <button
         type="submit"
-        className="w-full rounded-xl bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_10px_36px_rgba(109,40,217,0.35)]"
+        disabled={status === "sending"}
+        className="w-full rounded-xl bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_10px_36px_rgba(109,40,217,0.35)] disabled:opacity-60"
       >
-        {submitted ? "Opening email client..." : "Send Message"}
+        {status === "sending" ? "Sending..." : "Send Message"}
       </button>
     </form>
   );
