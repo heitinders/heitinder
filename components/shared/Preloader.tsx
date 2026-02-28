@@ -10,14 +10,17 @@ export default function Preloader() {
 
   useEffect(() => {
     const alreadyLoaded = window.sessionStorage.getItem(SESSION_KEY) === "1";
-
     if (alreadyLoaded) return;
 
     window.sessionStorage.setItem(SESSION_KEY, "1");
-    setIsVisible(true);
 
-    const timer = window.setTimeout(() => setIsVisible(false), 500);
-    return () => window.clearTimeout(timer);
+    const showTimer = window.setTimeout(() => setIsVisible(true), 0);
+    const hideTimer = window.setTimeout(() => setIsVisible(false), 500);
+
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+    };
   }, []);
 
   return (
