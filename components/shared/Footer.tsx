@@ -33,7 +33,7 @@ export default function Footer() {
         </nav>
 
         <p className="text-xs text-[var(--text-muted)]">
-          © 2025 Heitinder Singh · Built with Next.js · Deployed on Vercel
+          © 2026 Heitinder Singh · Built with Next.js · Deployed on Vercel
         </p>
       </div>
     </footer>

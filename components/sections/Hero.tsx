@@ -11,12 +11,12 @@ const HeroCanvas = dynamic(() => import("@/components/canvas/HeroCanvas"), {
   ssr: false,
 });
 
-const headlineLines = ["Building the", "Future of the", "Web."];
+const headlineLines = ["12 years.", "Wall Street", "to AI SaaS."];
 const trustChips = [
-  { text: "Federal Reserve Bank of NY", depth: 0.02, pos: "left-[4%] bottom-20 sm:left-[10%] sm:bottom-20" },
-  { text: "BNY · 4.5yrs", depth: 0.04, pos: "left-[10%] bottom-6 sm:left-[28%] sm:bottom-4" },
-  { text: "12+ Years Shipping", depth: 0.03, pos: "right-[10%] bottom-20 sm:right-[25%] sm:bottom-14" },
-  { text: "4 SaaS Products", depth: 0.05, pos: "right-[4%] bottom-6 sm:right-[8%] sm:bottom-4" },
+  { text: "Federal Reserve Bank of NY", depth: 0.02, pos: "left-[2%] bottom-16 sm:left-[10%] sm:bottom-20" },
+  { text: "BNY · 4.5yrs", depth: 0.04, pos: "left-[8%] bottom-4 sm:left-[28%] sm:bottom-4" },
+  { text: "12+ Years Shipping", depth: 0.03, pos: "right-[2%] bottom-16 sm:right-[25%] sm:bottom-14" },
+  { text: "4 SaaS Products", depth: 0.05, pos: "right-[8%] bottom-4 sm:right-[8%] sm:bottom-4" },
 ];
 
 function TrustChip({
@@ -98,11 +98,11 @@ function MagneticButton() {
   return (
     <a
       ref={buttonRef}
-      href="#projects"
+      href="#work"
      
       className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-8 py-4 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(109,40,217,0.3)]"
     >
-      View Selected Work <span aria-hidden>↓</span>
+      See What I&apos;ve Shipped <span aria-hidden>↓</span>
     </a>
   );
 }
@@ -171,7 +171,7 @@ export default function Hero() {
             />
           </span>
           <span className="font-mono text-[12px] text-[var(--text-primary)]/70">
-            Available · NYC/NJ & Remote
+            Available for Hire · NYC/NJ & Remote
           </span>
         </motion.div>
 
@@ -213,7 +213,7 @@ export default function Hero() {
           transition={{ duration: 0.55, delay: 0.8 }}
           className="mt-7 font-mono text-[14px] tracking-[0.15em] text-[var(--text-primary)]/60 uppercase"
         >
-          Senior Frontend Engineer · AI Product Builder · 12+ Years
+          Enterprise-grade frontend · Startup-speed shipping · AI-native
         </motion.p>
 
         <motion.p
@@ -221,10 +221,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="mt-6 max-w-[480px] text-[16px] leading-[1.7] text-[var(--text-primary)]/55"
+          className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[var(--text-primary)]/55"
         >
-          From Wall Street trading platforms to AI-powered SaaS — I engineer
-          experiences that perform at scale and feel like art.
+          Senior Frontend Engineer who built trading platforms at the Federal
+          Reserve and BNY Mellon, then shipped 4 AI-powered SaaS products.
+          I engineer experiences that perform at scale.
         </motion.p>
 
         <motion.div
@@ -236,18 +237,18 @@ export default function Hero() {
         >
           <MagneticButton />
           <a
-            href="mailto:heitinder.js@gmail.com"
-           
-            className="rounded-full border border-[var(--border)] px-6 py-3.5 text-sm tracking-[0.04em] text-[var(--text-primary)] transition-colors hover:border-[var(--accent-glow)]"
+            href="#contact"
+
+            className="rounded-full border border-[var(--border)] px-6 py-3.5 text-sm font-medium tracking-[0.04em] text-[var(--text-primary)] transition-colors hover:border-[var(--accent-glow)]"
           >
-            heitinder.js@gmail.com
+            Book a Call <span aria-hidden>→</span>
           </a>
         </motion.div>
       </div>
 
       <motion.div
         layout={false}
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] hidden h-36 sm:block"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36"
         initial="hidden"
         animate="visible"
         variants={{

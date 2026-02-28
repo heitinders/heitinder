@@ -191,8 +191,8 @@ export default function Navbar() {
 
               <a
                 href="#contact"
-               
-                className="rounded-full border border-white/12 bg-white/[0.02] px-4 py-2 text-sm text-white/85 transition-colors hover:bg-white/[0.05]"
+
+                className="rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_8px_28px_rgba(109,40,217,0.35)]"
               >
                 Let&apos;s Talk
               </a>

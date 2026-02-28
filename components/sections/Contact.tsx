@@ -2,8 +2,8 @@
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
-import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { type FormEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -73,11 +73,66 @@ function MagneticLink() {
     <a
       ref={ref}
       href="mailto:heitinder.js@gmail.com"
-     
+
       className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-10 py-5 text-base font-semibold text-white shadow-[0_16px_36px_rgba(109,40,217,0.26)]"
     >
       Send a Message <span aria-hidden>→</span>
     </a>
+  );
+}
+
+function ContactForm() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
+
+    const subject = encodeURIComponent(`Project Inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Hi Heitinder,\n\n${message}\n\n— ${name}\n${email}`,
+    );
+    window.open(`mailto:heitinder.js@gmail.com?subject=${subject}&body=${body}`, "_self");
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 4000);
+  }, []);
+
+  return (
+    <form onSubmit={handleSubmit} className="w-full space-y-4">
+      <div className="grid gap-4 sm:grid-cols-2">
+        <input
+          type="text"
+          name="name"
+          required
+          placeholder="Your name"
+          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none"
+        />
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Your email"
+          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none"
+        />
+      </div>
+      <textarea
+        name="message"
+        required
+        rows={4}
+        placeholder="Tell me about your project..."
+        className="w-full resize-none rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none"
+      />
+      <button
+        type="submit"
+        className="w-full rounded-xl bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_10px_36px_rgba(109,40,217,0.35)]"
+      >
+        {submitted ? "Opening email client..." : "Send Message"}
+      </button>
+    </form>
   );
 }
 
@@ -110,14 +165,14 @@ export default function Contact() {
         </motion.p>
 
         <motion.div variants={itemVariants} className="mt-6">
-          <h2 className="text-[clamp(3rem,8vw,7rem)] font-black leading-[0.92] tracking-[-0.04em] text-[var(--text-primary)]">
-            Let&apos;s build
+          <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black leading-[0.92] tracking-[-0.04em] text-[var(--text-primary)]">
+            Need a senior
           </h2>
-          <h2 className="text-[clamp(3rem,8vw,7rem)] font-black leading-[0.92] tracking-[-0.04em] text-[var(--text-primary)]">
-            something
+          <h2 className="text-[clamp(2.5rem,7vw,5.5rem)] font-black leading-[0.92] tracking-[-0.04em] text-[var(--text-primary)]">
+            engineer who
           </h2>
-          <h2 className="gradient-text text-[clamp(3rem,8vw,7rem)] font-black leading-[0.92] tracking-[-0.04em] italic">
-            remarkable.
+          <h2 className="gradient-text text-[clamp(2.5rem,7vw,5.5rem)] font-black leading-[0.92] tracking-[-0.04em] italic">
+            ships?
           </h2>
         </motion.div>
 
@@ -126,8 +181,7 @@ export default function Contact() {
           className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-[var(--text-secondary)]"
         >
           Open to senior frontend engineering contracts, AI product collaborations,
-          and technical advisory roles. Based in NYC/NJ · Available globally for
-          remote.
+          and technical advisory roles. Based in NYC/NJ, available globally.
         </motion.p>
 
         <motion.div
@@ -136,16 +190,12 @@ export default function Contact() {
         >
           <a
             href="mailto:heitinder.js@gmail.com"
-           
+
             className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
           >
             <Mail size={16} />
             <span>heitinder.js@gmail.com</span>
           </a>
-          <div className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)]">
-            <Phone size={16} />
-            <span>346-978-7475</span>
-          </div>
           <div className="inline-flex items-center gap-2 text-sm text-[var(--text-secondary)]">
             <MapPin size={16} />
             <span>NYC / NJ Area</span>
@@ -157,23 +207,30 @@ export default function Contact() {
           className="mt-8 h-px w-full max-w-[620px] bg-gradient-to-r from-transparent via-[var(--accent-glow)] to-transparent"
         />
 
+        <motion.div variants={itemVariants} className="mt-8 w-full max-w-[520px]">
+          <ContactForm />
+        </motion.div>
+
         <motion.div
           variants={itemVariants}
-          className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <MagneticLink />
-          <a
-            href="https://www.linkedin.com/in/heitinder-singh-23107718a/"
-            target="_blank"
-            rel="noopener noreferrer"
-           
-            className={cn(
-              "inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-7 py-4 text-sm font-medium text-[var(--text-primary)]",
-              "transition-colors hover:border-[var(--accent-glow)]",
-            )}
-          >
-            Connect on LinkedIn <span aria-hidden>↗</span>
-          </a>
+          <span className="text-sm text-[var(--text-muted)]">or reach out directly</span>
+          <div className="flex items-center gap-3">
+            <MagneticLink />
+            <a
+              href="https://www.linkedin.com/in/heitinder-singh-23107718a/"
+              target="_blank"
+              rel="noopener noreferrer"
+
+              className={cn(
+                "inline-flex items-center gap-2 rounded-full border border-[var(--border)] px-7 py-4 text-sm font-medium text-[var(--text-primary)]",
+                "transition-colors hover:border-[var(--accent-glow)]",
+              )}
+            >
+              LinkedIn <span aria-hidden>↗</span>
+            </a>
+          </div>
         </motion.div>
 
         <motion.div variants={itemVariants} className="mt-8 flex items-center justify-center gap-6">
@@ -203,7 +260,7 @@ export default function Contact() {
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 aria-label={item.label}
-               
+
                 className="text-[var(--text-muted)] transition duration-200 hover:scale-110 hover:text-[var(--text-primary)]"
               >
                 <Icon size={20} />

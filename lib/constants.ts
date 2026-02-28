@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     title: "Glisco Lab",
     url: "https://gliscolab.com",
     description:
-      "Full-service digital marketing agency delivering SEO, paid ads, social strategy, and web development.",
+      "Full-service digital marketing agency delivering SEO, paid ads, social strategy, and web development. Grew client organic traffic by 3x in 6 months across multiple accounts.",
     role: "Founder & Lead Developer",
     tags: ["Agency", "Web Design", "SEO", "Paid Advertising"],
     accentFrom: "#7c3aed",
@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
     title: "EcomHands",
     url: "https://ecomhands.com",
     description:
-      "Hands-on e-commerce growth platform. Product optimization, conversion strategies, and managed services.",
+      "Hands-on e-commerce growth platform. Product optimization, conversion strategies, and managed services that helped merchants increase average order value by 28%.",
     role: "Product Builder",
     tags: ["E-Commerce", "Growth", "Optimization", "React"],
     accentFrom: "#0891b2",
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
     title: "GovCon Finds",
     url: "https://govconfinds.com",
     description:
-      "AI-powered federal contract discovery for small businesses. Surfaces SAM.gov opportunities, analyzes set-aside eligibility, generates AI bid insights.",
+      "AI-powered federal contract discovery for small businesses. Surfaces SAM.gov opportunities, analyzes set-aside eligibility, and generates AI bid insights. Processing 1,000+ contracts daily with LLM pipelines.",
     role: "Founder · Full-Stack · AI Integration",
     tags: ["AI", "GovTech", "SaaS", "Next.js", "OpenAI"],
     accentFrom: "#059669",
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     title: "ScalifAI",
     url: "https://www.scalifai.app",
     description:
-      "AI-powered business automation platform. AI assistants that answer calls, emails, and optimize digital marketing — all in one smart platform.",
+      "AI-powered business automation platform. AI assistants that answer calls, emails, and optimize digital marketing — replacing 10+ hours of manual work per week per client.",
     role: "Product Architect",
     tags: ["AI", "SaaS", "Automation", "TypeScript", "React"],
     accentFrom: "#6d28d9",
@@ -81,7 +81,7 @@ export const PROJECTS: Project[] = [
     title: "SEO Ops Hub",
     url: "https://seo-ops-hub.com",
     description:
-      "Complete SEO operations platform. Onboard clients, run technical audits, generate content briefs, and ship deliverables — all from one AI-powered dashboard.",
+      "Complete SEO operations platform. Onboard clients, run technical audits, generate content briefs, and ship deliverables — cutting audit turnaround from days to under 30 minutes.",
     role: "Founder & Full-Stack Developer",
     tags: ["AI", "SaaS", "SEO", "Next.js", "Automation"],
     accentFrom: "#14b8a6",
