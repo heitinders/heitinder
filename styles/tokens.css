@@ -1,14 +1,14 @@
 :root {
   --bg-base: #04040a;
   --bg-surface: #0d0d1a;
-  --accent-primary: #6d28d9;
-  --accent-glow: #8b5cf6;
-  --accent-secondary: #22d3ee;
+  --accent-primary: #e8e0d4;
+  --accent-glow: #c9a96e;
+  --accent-secondary: #b86a50;
   --accent-gold: #f59e0b;
   --text-primary: #f1f5f9;
-  --text-secondary: #8494a7;
+  --text-secondary: #9a9185;
   --text-muted: #4f6078;
-  --border: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.08);
   --glass: rgba(255, 255, 255, 0.025);
   --radius-card: 20px;
   --blur-glass: 24px;

@@ -157,7 +157,7 @@ function MagneticButton() {
     <a
       ref={buttonRef}
       href="#work"
-      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-8 py-4 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(109,40,217,0.3)]"
+      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-8 py-4 text-sm font-semibold text-[var(--bg-base)] shadow-[0_14px_36px_rgba(201,169,110,0.3)]"
     >
       See What I&apos;ve Shipped <span aria-hidden>&#8595;</span>
     </a>
@@ -188,6 +188,8 @@ export default function HeroParallax() {
 
   /* -- Particle system --------------------------------------------------- */
   useEffect(() => {
+    if (window.innerWidth < 768) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -262,7 +264,7 @@ export default function HeroParallax() {
       if (lastVelocity < -10) {
         targetRate = 0.15;
       }
-      currentRate += (targetRate - currentRate) * 0.08;
+      currentRate += (targetRate - currentRate) * 0.04;
       currentRate = Math.max(0.15, currentRate);
       video.playbackRate = currentRate;
     };
@@ -272,11 +274,13 @@ export default function HeroParallax() {
       cleanups.push(() => gsap.ticker.remove(velocityTick));
     }
 
+    const scrollMultiplier = isMobileRef.current ? 2.5 : 4;
     const mainTrigger = ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: () => `+=${window.innerHeight * 4}`,
+      end: () => `+=${window.innerHeight * scrollMultiplier}`,
       pin: true,
+      pinSpacing: true,
       scrub: 1,
       onUpdate: (self) => {
         lastVelocity = self.getVelocity();
@@ -401,7 +405,7 @@ export default function HeroParallax() {
       ref={sectionRef}
       id="top"
       className="hero-parallax relative w-full bg-[var(--bg-base)]"
-      style={{ height: "100vh", position: "relative", isolation: "isolate" }}
+      style={{ minHeight: "100dvh", height: "100dvh", position: "relative", isolation: "isolate" }}
     >
       <div
         ref={progressBarRef}
@@ -455,7 +459,7 @@ export default function HeroParallax() {
               className={cn(
                 "block text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.95] tracking-[-0.03em]",
                 "font-[800] text-[var(--text-primary)]",
-                index === 2 && "gradient-text",
+                index === 2 && "text-[var(--accent-glow)]",
               )}
             >
               {line}
@@ -545,7 +549,7 @@ export default function HeroParallax() {
       {isMobile && (
         <div className="absolute inset-x-0 bottom-24 z-[4] flex flex-wrap justify-center gap-2 px-4">
           {SKILL_PANELS.map((panel) => (
-            <div key={panel.label} className="flex items-center gap-2 rounded-full border border-[rgba(75,158,255,0.3)] bg-[var(--bg-surface)]/70 px-3 py-2 text-xs font-medium text-white">
+            <div key={panel.label} className="flex items-center gap-2 rounded-full border border-[rgba(201,169,110,0.3)] bg-[var(--bg-surface)]/70 px-3 py-2 text-xs font-medium text-white">
               <span className="text-[var(--accent-secondary)]">{panel.icon}</span>
               {panel.label}
             </div>
