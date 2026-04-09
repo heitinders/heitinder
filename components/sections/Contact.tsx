@@ -74,7 +74,7 @@ function MagneticLink() {
       ref={ref}
       href="mailto:heitinder.js@gmail.com"
 
-      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-10 py-5 text-base font-semibold text-white shadow-[0_16px_36px_rgba(109,40,217,0.26)]"
+      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-10 py-5 text-base font-semibold text-[var(--bg-base)] shadow-[0_16px_36px_rgba(201,169,110,0.26)]"
     >
       Send a Message <span aria-hidden>→</span>
     </a>
@@ -185,7 +185,7 @@ function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="w-full rounded-xl bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_10px_28px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_10px_36px_rgba(109,40,217,0.35)] disabled:opacity-60"
+        className="w-full rounded-xl bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-6 py-3.5 text-sm font-semibold text-[var(--bg-base)] shadow-[0_10px_28px_rgba(201,169,110,0.25)] transition-shadow hover:shadow-[0_10px_36px_rgba(201,169,110,0.35)] disabled:opacity-60"
       >
         {status === "sending" ? "Sending..." : "Send Message"}
       </button>
@@ -204,7 +204,7 @@ export default function Contact() {
         className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60 blur-[120px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(109,40,217,0.06) 0%, rgba(109,40,217,0.03) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(201,169,110,0.06) 0%, rgba(201,169,110,0.03) 40%, transparent 70%)",
         }}
       />
 

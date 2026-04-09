@@ -108,7 +108,7 @@ export default function Stats() {
   return (
     <section className="relative overflow-hidden py-[80px]">
       <div className="absolute inset-0 -z-10 bg-[linear-gradient(var(--bg-base),var(--bg-surface))]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(109,40,217,0.05),transparent_55%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,rgba(201,169,110,0.05),transparent_55%)]" />
 
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-glow)] to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--accent-glow)] to-transparent" />

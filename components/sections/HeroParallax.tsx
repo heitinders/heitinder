@@ -446,7 +446,7 @@ export default function HeroParallax() {
             <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e]" />
             <span className="relative h-2 w-2 rounded-full bg-[#22c55e]" style={{ boxShadow: "0 0 0 4px rgba(34,197,94,0.2)" }} />
           </span>
-          <span className="font-mono text-[12px] text-[var(--text-primary)]/70">
+          <span className="font-mono text-[12px] text-[var(--text-primary)]/85">
             Available for Hire &middot; NYC/NJ &amp; Remote
           </span>
         </div>
@@ -469,19 +469,19 @@ export default function HeroParallax() {
 
         {/* Name subtitle */}
         <p
-          className="mt-4 text-[clamp(1rem,2vw,1.4rem)] leading-[1.1] tracking-[-0.01em] text-white/70"
+          className="mt-4 text-[clamp(1rem,2vw,1.4rem)] leading-[1.1] tracking-[-0.01em] text-white/90"
           style={{ fontFamily: "var(--font-dm-serif), 'DM Serif Display', serif" }}
         >
           Heitinder Singh
         </p>
 
         {/* Mono tagline */}
-        <p className="mt-4 font-mono text-[13px] tracking-[0.15em] text-[var(--text-primary)]/60 uppercase">
+        <p className="mt-4 font-mono text-[13px] tracking-[0.15em] text-[var(--text-primary)]/80 uppercase">
           Enterprise-grade frontend &middot; Startup-speed shipping &middot; AI-native
         </p>
 
         {/* Bio — hidden on very short screens */}
-        <p className="mt-4 hidden max-w-[520px] text-[15px] leading-[1.6] text-[var(--text-primary)]/55 sm:block">
+        <p className="mt-4 hidden max-w-[520px] text-[15px] leading-[1.6] text-[var(--text-primary)]/70 sm:block">
           Senior Frontend Engineer who built trading platforms at the Federal
           Reserve and BNY Mellon, then shipped 4 AI-powered SaaS products.
           I engineer experiences that perform at scale.

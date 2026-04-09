@@ -17,7 +17,7 @@ export default function MidPageCTA() {
       >
         <div className="glass-card relative overflow-hidden rounded-2xl px-8 py-12 sm:px-12">
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-violet-500/10 via-transparent to-cyan-500/10"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-orange-500/10"
             aria-hidden
           />
           <div className="relative z-[1]">
@@ -32,7 +32,7 @@ export default function MidPageCTA() {
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-8 py-4 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(109,40,217,0.3)]"
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-8 py-4 text-sm font-semibold text-[var(--bg-base)] shadow-[0_14px_36px_rgba(201,169,110,0.3)]"
               >
                 Let&apos;s Talk <span aria-hidden>→</span>
               </a>

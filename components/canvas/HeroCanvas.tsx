@@ -116,8 +116,8 @@ varying float vDisplace;
 uniform float uTime;
 
 void main() {
-  vec3 violet = vec3(0.427, 0.157, 0.851); // #6d28d9
-  vec3 cyan = vec3(0.133, 0.827, 0.933);   // #22d3ee
+  vec3 violet = vec3(0.788, 0.663, 0.431); // #c9a96e (warm gold)
+  vec3 cyan = vec3(0.722, 0.416, 0.314);   // #b86a50 (terracotta)
 
   vec3 n = normalize(vNormalW);
   float facing = dot(n, normalize(vec3(0.25, 0.5, 1.0))) * 0.5 + 0.5;
@@ -181,8 +181,8 @@ export default function HeroCanvas() {
         frameloop="always"
       >
         <ambientLight intensity={0.25} />
-        <directionalLight position={[2.5, 2, 3]} intensity={0.6} color="#8b5cf6" />
-        <directionalLight position={[-2, -1, 2]} intensity={0.5} color="#22d3ee" />
+        <directionalLight position={[2.5, 2, 3]} intensity={0.6} color="#c9a96e" />
+        <directionalLight position={[-2, -1, 2]} intensity={0.5} color="#b86a50" />
         <BreathingIcosahedron />
         {/* Bloom skipped: @react-three/postprocessing is not installed in this project. */}
       </Canvas>

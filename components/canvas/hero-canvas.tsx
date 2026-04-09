@@ -17,7 +17,7 @@ function Orb() {
   return (
     <Sphere ref={meshRef} args={[1, 48, 48]} scale={1.6}>
       <meshStandardMaterial
-        color="#8b5cf6"
+        color="#c9a96e"
         roughness={0.25}
         metalness={0.1}
         emissive="#1d4ed8"
@@ -33,8 +33,8 @@ export function HeroCanvas() {
     <div className="pointer-events-none absolute inset-0 opacity-60">
       <Canvas camera={{ position: [0, 0, 4.5], fov: 45 }}>
         <ambientLight intensity={0.35} />
-        <pointLight position={[2, 2, 2]} intensity={2} color="#8b5cf6" />
-        <pointLight position={[-2, -1, 1]} intensity={1.2} color="#22d3ee" />
+        <pointLight position={[2, 2, 2]} intensity={2} color="#c9a96e" />
+        <pointLight position={[-2, -1, 1]} intensity={1.2} color="#b86a50" />
         <Orb />
       </Canvas>
     </div>

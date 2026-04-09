@@ -147,8 +147,8 @@ export default function About() {
 
                   <div className="absolute inset-0 grid place-items-center px-4">
                     <div className="relative w-full max-w-[90%] text-center">
-                      <div className="absolute -inset-8 rounded-full bg-[radial-gradient(circle,rgba(109,40,217,0.28),transparent_70%)] blur-2xl" />
-                      <span className="relative block bg-gradient-to-r from-[#6d28d9] to-[#22d3ee] bg-clip-text font-mono text-4xl font-semibold leading-tight text-transparent sm:text-5xl lg:text-6xl">
+                      <div className="absolute -inset-8 rounded-full bg-[radial-gradient(circle,rgba(201,169,110,0.28),transparent_70%)] blur-2xl" />
+                      <span className="relative block bg-gradient-to-r from-[var(--accent-glow)] to-[var(--accent-secondary)] bg-clip-text font-mono text-4xl font-semibold leading-tight text-transparent sm:text-5xl lg:text-6xl">
                         Heitinder Singh
                       </span>
                     </div>
@@ -192,7 +192,7 @@ export default function About() {
                             : { width: 0 }
                         }
                         style={{
-                          boxShadow: "0 0 18px rgba(109, 40, 217, 0.25)",
+                          boxShadow: "0 0 18px rgba(201, 169, 110, 0.25)",
                         }}
                       />
                     </div>
@@ -208,10 +208,10 @@ export default function About() {
         .about-card-ring {
           background: conic-gradient(
             from 0deg,
-            rgba(109, 40, 217, 0.9),
-            rgba(34, 211, 238, 0.8),
-            rgba(109, 40, 217, 0.15),
-            rgba(109, 40, 217, 0.9)
+            rgba(201, 169, 110, 0.9),
+            rgba(184, 106, 80, 0.8),
+            rgba(201, 169, 110, 0.15),
+            rgba(201, 169, 110, 0.9)
           );
           animation: aboutSpin 8s linear infinite;
           filter: saturate(1.05);
@@ -226,9 +226,9 @@ export default function About() {
 
         .about-card-mesh {
           background:
-            radial-gradient(circle at 18% 22%, rgba(109, 40, 217, 0.28), transparent 50%),
-            radial-gradient(circle at 78% 28%, rgba(99, 102, 241, 0.22), transparent 48%),
-            radial-gradient(circle at 52% 76%, rgba(34, 211, 238, 0.16), transparent 52%),
+            radial-gradient(circle at 18% 22%, rgba(201, 169, 110, 0.28), transparent 50%),
+            radial-gradient(circle at 78% 28%, rgba(184, 106, 80, 0.22), transparent 48%),
+            radial-gradient(circle at 52% 76%, rgba(184, 106, 80, 0.16), transparent 52%),
             linear-gradient(180deg, rgba(13, 13, 26, 0.9), rgba(4, 4, 10, 0.96));
           animation: meshPulse 10s ease-in-out infinite;
         }

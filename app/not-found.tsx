@@ -14,7 +14,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_12px_32px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_12px_40px_rgba(109,40,217,0.35)]"
+        className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-7 py-3.5 text-sm font-semibold text-[var(--bg-base)] shadow-[0_12px_32px_rgba(201,169,110,0.25)] transition-shadow hover:shadow-[0_12px_40px_rgba(201,169,110,0.35)]"
       >
         Back to home
       </Link>

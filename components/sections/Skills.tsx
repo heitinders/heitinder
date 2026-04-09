@@ -186,7 +186,7 @@ export default function Skills() {
             custom={5}
           >
             <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[inherit]">
-              <div className="absolute -right-8 top-6 h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(109,40,217,0.24),transparent_70%)] blur-2xl" />
+              <div className="absolute -right-8 top-6 h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(201,169,110,0.24),transparent_70%)] blur-2xl" />
               <div className="absolute left-1/3 top-10 h-20 w-48 -rotate-6 rounded-2xl border border-white/8 bg-white/[0.02]" />
               <div className="absolute right-1/4 bottom-8 h-14 w-36 rotate-6 rounded-2xl border border-white/8 bg-white/[0.02]" />
               <div className="absolute inset-x-6 bottom-12 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />

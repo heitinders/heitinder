@@ -31,7 +31,7 @@ const fadeUp = {
 function NeuralVisual() {
   return (
     <div className="relative h-full min-h-[280px] w-full [perspective:1000px]">
-      <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_25%_20%,rgba(109,40,217,0.18),transparent_52%),radial-gradient(circle_at_80%_25%,rgba(34,211,238,0.14),transparent_45%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))]" />
+      <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_25%_20%,rgba(201,169,110,0.18),transparent_52%),radial-gradient(circle_at_80%_25%,rgba(184,106,80,0.14),transparent_45%),linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0))]" />
 
       <motion.div
         className="absolute inset-[10%] rounded-2xl border border-white/10 bg-white/[0.015] shadow-[0_20px_60px_rgba(4,4,10,0.35)]"
@@ -43,8 +43,8 @@ function NeuralVisual() {
           <defs>
             {/* SVG stopColor cannot use CSS variables directly; keeping hardcoded values */}
             <linearGradient id="lineG" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#6d28d9" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#c9a96e" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#b86a50" stopOpacity="0.8" />
             </linearGradient>
             <filter id="glow">
               <feGaussianBlur stdDeviation="2" result="blur" />
@@ -95,7 +95,7 @@ function NeuralVisual() {
                 cx={node.x}
                 cy={node.y}
                 r="6"
-                fill={i % 2 === 0 ? "#8b5cf6" : "#22d3ee"}
+                fill={i % 2 === 0 ? "#c9a96e" : "#b86a50"}
                 animate={{ r: [5.5, 7.5, 5.5], opacity: [0.85, 1, 0.85] }}
                 transition={{ duration: 2 + i * 0.2, repeat: Infinity, ease: "easeInOut" }}
               />
@@ -240,8 +240,8 @@ export default function AISection() {
                   className={cn(
                     "inline-flex rounded-full border px-3 py-2 font-mono text-xs transition hover:scale-[1.05] hover:border-[var(--accent-glow)]",
                     index % 2 === 0
-                      ? "border-violet-400/20 bg-violet-500/5 text-violet-200/90"
-                      : "border-cyan-400/20 bg-cyan-500/5 text-cyan-200/90",
+                      ? "border-amber-400/20 bg-amber-500/5 text-amber-200/90"
+                      : "border-amber-400/20 bg-amber-500/5 text-amber-200/90",
                   )}
                 >
                   {tool}

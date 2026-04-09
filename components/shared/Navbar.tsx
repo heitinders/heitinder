@@ -192,7 +192,7 @@ export default function Navbar() {
               <a
                 href="#contact"
 
-                className="rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_8px_28px_rgba(109,40,217,0.35)]"
+                className="rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-5 py-2 text-sm font-semibold text-[var(--bg-base)] shadow-[0_8px_20px_rgba(201,169,110,0.25)] transition-shadow hover:shadow-[0_8px_28px_rgba(201,169,110,0.35)]"
               >
                 Let&apos;s Talk
               </a>

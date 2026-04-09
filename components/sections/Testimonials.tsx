@@ -11,21 +11,21 @@ const testimonials = [
       "Heitinder doesn't just write code — he thinks in products. He shipped our trade platform ahead of schedule and mentored two junior engineers along the way.",
     name: "Engineering Lead",
     title: "BNY Mellon — Pershing",
-    accent: "from-violet-500/20 to-transparent",
+    accent: "from-amber-500/20 to-transparent",
   },
   {
     quote:
       "One of the strongest frontend engineers I've worked with. He architected our React component library and reduced page load times by 40% across the platform.",
     name: "Senior VP, Technology",
     title: "Federal Reserve Bank of NY",
-    accent: "from-cyan-500/20 to-transparent",
+    accent: "from-amber-500/20 to-transparent",
   },
   {
     quote:
       "Heitinder brought our AI product vision to life in weeks, not months. His ability to integrate LLM APIs into production-grade UIs is rare and invaluable.",
     name: "Co-Founder",
     title: "ScalifAI",
-    accent: "from-violet-500/20 to-transparent",
+    accent: "from-amber-500/20 to-transparent",
   },
 ];
 

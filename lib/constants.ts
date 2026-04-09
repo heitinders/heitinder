@@ -72,8 +72,8 @@ export const PROJECTS: Project[] = [
       "AI-powered business automation platform. AI assistants that answer calls, emails, and optimize digital marketing — replacing 10+ hours of manual work per week per client.",
     role: "Product Architect",
     tags: ["AI", "SaaS", "Automation", "TypeScript", "React"],
-    accentFrom: "#6d28d9",
-    accentTo: "#4f46e5",
+    accentFrom: "#c9a96e",
+    accentTo: "#b86a50",
     image: "/scalifai.png",
   },
   {
