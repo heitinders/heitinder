@@ -2,7 +2,7 @@ import AISection from "@/components/sections/AISection";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
 import Experience from "@/components/sections/Experience";
-import Hero from "@/components/sections/Hero";
+import HeroParallax from "@/components/sections/HeroParallax";
 import LogoBar from "@/components/sections/LogoBar";
 import Marquee from "@/components/sections/Marquee";
 import MidPageCTA from "@/components/sections/MidPageCTA";
@@ -15,7 +15,7 @@ import RevealOnScroll from "@/components/ui/RevealOnScroll";
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <HeroParallax />
       <LogoBar />
       <RevealOnScroll>
         <Marquee />
