@@ -401,7 +401,7 @@ export default function HeroParallax() {
       ref={sectionRef}
       id="top"
       className="hero-parallax relative w-full bg-[var(--bg-base)]"
-      style={{ height: "100vh", position: "relative", willChange: "transform", isolation: "isolate" }}
+      style={{ height: "100vh", position: "relative", isolation: "isolate" }}
     >
       <div
         ref={progressBarRef}
@@ -528,7 +528,6 @@ export default function HeroParallax() {
               className="hero-parallax-panel absolute left-1/2 top-1/2"
               style={{
                 transform: `translate(-50%, -50%) translate(${panel.tx}, ${panel.ty}) translateZ(${panel.tz}px) rotateY(${panel.ry}deg) rotateX(${panel.rx}deg)`,
-                willChange: "transform, opacity",
               }}
             >
               <div

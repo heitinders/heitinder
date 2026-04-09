@@ -98,7 +98,7 @@ export default function RootLayout({
         <SmoothScrollProvider>
           <Preloader />
           <Navbar />
-          <main className="gpu-scroll-layer">
+          <main>
             <PageTransition>{children}</PageTransition>
           </main>
           <Footer />

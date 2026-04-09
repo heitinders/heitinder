@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+/* Fonts loaded via next/font/google in layout.tsx — no CSS @import needed */
 @import "tailwindcss";
 @import "./tokens.css";
 
@@ -80,16 +80,9 @@ body::before {
      gives the same dark-glass look without per-frame GPU blur cost. */
 }
 
-.animated-element {
-  will-change: transform;
-}
-
-.gpu-scroll-layer {
-  /* transform: translateZ(0) removed — creates a stacking context
-     that breaks GSAP ScrollTrigger pin positioning. The pin uses
-     position: fixed internally, which doesn't work inside a
-     transformed ancestor. */
-}
+/* .gpu-scroll-layer and .animated-element removed:
+   - gpu-scroll-layer's translateZ(0) broke GSAP ScrollTrigger pinning
+   - Permanent will-change wastes GPU memory; apply only during animation */
 
 @keyframes shimmer {
   0% {
