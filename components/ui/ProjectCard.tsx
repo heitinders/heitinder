@@ -139,7 +139,7 @@ export default function ProjectCard(props: ProjectCardProps) {
             style={{
               background: `
                 radial-gradient(circle at 50% 50%, ${hexToRgba(accentFrom, 0.15)}, transparent 70%),
-                linear-gradient(180deg, rgba(13,13,26,0.5), rgba(4,4,10,0.85))
+                linear-gradient(180deg, color-mix(in srgb, var(--bg-surface) 50%, transparent), color-mix(in srgb, var(--bg-base) 85%, transparent))
               `,
             }}
           />

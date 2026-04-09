@@ -157,7 +157,7 @@ function MagneticButton() {
     <a
       ref={buttonRef}
       href="#work"
-      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-8 py-4 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(109,40,217,0.3)]"
+      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-8 py-4 text-sm font-semibold text-white shadow-[0_14px_36px_rgba(109,40,217,0.3)]"
     >
       See What I&apos;ve Shipped <span aria-hidden>&#8595;</span>
     </a>
@@ -400,14 +400,14 @@ export default function HeroParallax() {
     <section
       ref={sectionRef}
       id="top"
-      className="hero-parallax relative w-full bg-[#04040a]"
+      className="hero-parallax relative w-full bg-[var(--bg-base)]"
       style={{ height: "100vh", position: "relative", willChange: "transform", isolation: "isolate" }}
     >
       <div
         ref={progressBarRef}
         role="progressbar"
         aria-label="Scroll progress"
-        className="fixed left-0 top-0 z-[100] h-[2px] w-full origin-left bg-[#4B9EFF]"
+        className="fixed left-0 top-0 z-[100] h-[2px] w-full origin-left bg-[var(--accent-secondary)]"
         style={{ transform: "scaleX(0)" }}
       />
 
@@ -532,10 +532,10 @@ export default function HeroParallax() {
               }}
             >
               <div
-                className="hero-parallax-panel-glow flex items-center gap-3 rounded-xl border bg-[#0B0F1A]/80 px-5 py-4 text-white backdrop-blur-[8px]"
+                className="hero-parallax-panel-glow flex items-center gap-3 rounded-xl border bg-[var(--bg-surface)]/80 px-5 py-4 text-white backdrop-blur-[8px]"
                 style={{ animationDelay: `${i * 0.5}s` }}
               >
-                <span className="text-[#4B9EFF]">{panel.icon}</span>
+                <span className="text-[var(--accent-secondary)]">{panel.icon}</span>
                 <span className="whitespace-nowrap text-sm font-medium tracking-wide">{panel.label}</span>
               </div>
             </div>
@@ -546,8 +546,8 @@ export default function HeroParallax() {
       {isMobile && (
         <div className="absolute inset-x-0 bottom-24 z-[4] flex flex-wrap justify-center gap-2 px-4">
           {SKILL_PANELS.map((panel) => (
-            <div key={panel.label} className="flex items-center gap-2 rounded-full border border-[rgba(75,158,255,0.3)] bg-[#0B0F1A]/70 px-3 py-2 text-xs font-medium text-white">
-              <span className="text-[#4B9EFF]">{panel.icon}</span>
+            <div key={panel.label} className="flex items-center gap-2 rounded-full border border-[rgba(75,158,255,0.3)] bg-[var(--bg-surface)]/70 px-3 py-2 text-xs font-medium text-white">
+              <span className="text-[var(--accent-secondary)]">{panel.icon}</span>
               {panel.label}
             </div>
           ))}
@@ -571,7 +571,7 @@ export default function HeroParallax() {
         <p className="mb-8 max-w-lg text-center text-[clamp(1.25rem,3vw,2.25rem)] font-light leading-snug text-white">
           Built with precision.<br />Ready for your stack.
         </p>
-        <a href="/#projects" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#04040a] transition-transform hover:scale-105">
+        <a href="/#projects" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold text-[var(--bg-base)] transition-transform hover:scale-105">
           View My Work <span aria-hidden>&rarr;</span>
         </a>
       </div>

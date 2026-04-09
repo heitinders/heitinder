@@ -122,12 +122,12 @@ export default function Skills() {
           <BentoCard
             title="AI & Emerging"
             icon={Sparkles}
-            accentColor="#f59e0b"
+            accentColor="var(--accent-gold)"
             variants={cardVariants}
             custom={2}
           >
             <PillCloud
-              accentColor="#f59e0b"
+              accentColor="var(--accent-gold)"
               items={[
                 "OpenAI API",
                 "Claude API",
@@ -144,12 +144,12 @@ export default function Skills() {
           <BentoCard
             title="Testing & Quality"
             icon={CheckCircle}
-            accentColor="#10b981"
+            accentColor="var(--accent-secondary)"
             variants={cardVariants}
             custom={3}
           >
             <PillCloud
-              accentColor="#10b981"
+              accentColor="var(--accent-secondary)"
               items={[
                 "Jest",
                 "Cypress",
@@ -167,12 +167,12 @@ export default function Skills() {
           <BentoCard
             title="Data Visualization"
             icon={BarChart2}
-            accentColor="#f43f5e"
+            accentColor="var(--accent-gold)"
             variants={cardVariants}
             custom={4}
           >
             <PillCloud
-              accentColor="#f43f5e"
+              accentColor="var(--accent-gold)"
               items={["D3.js", "ag-Grid", "Highcharts", "Canvas", "SVG", "WebGL", "C3.js"]}
             />
           </BentoCard>

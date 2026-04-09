@@ -110,11 +110,11 @@ export default function Navbar() {
     () =>
       isScrolled
         ? {
-            backgroundColor: "rgba(4,4,10,0.92)",
-            borderBottomColor: "rgba(255,255,255,0.06)",
+            backgroundColor: "color-mix(in srgb, var(--bg-base) 92%, transparent)",
+            borderBottomColor: "var(--border)",
           }
         : {
-            backgroundColor: "rgba(4,4,10,0.5)",
+            backgroundColor: "color-mix(in srgb, var(--bg-base) 50%, transparent)",
             borderBottomColor: "rgba(255,255,255,0)",
           },
     [isScrolled],
@@ -152,7 +152,7 @@ export default function Navbar() {
               aria-label="Go to top"
             >
               <span
-                className="bg-gradient-to-r from-[#6d28d9] to-[#22d3ee] bg-clip-text text-transparent"
+                className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent"
               >
                 Heitinder Singh
               </span>
@@ -192,7 +192,7 @@ export default function Navbar() {
               <a
                 href="#contact"
 
-                className="rounded-full bg-gradient-to-r from-[#6d28d9] to-indigo-500 px-5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_8px_28px_rgba(109,40,217,0.35)]"
+                className="rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-5 py-2 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(109,40,217,0.25)] transition-shadow hover:shadow-[0_8px_28px_rgba(109,40,217,0.35)]"
               >
                 Let&apos;s Talk
               </a>
@@ -245,7 +245,7 @@ export default function Navbar() {
               layout={false}
               id="mobile-nav-drawer"
               ref={drawerPanelRef}
-              className="absolute inset-0 grid place-items-center bg-[#0d0d1a]"
+              className="absolute inset-0 grid place-items-center bg-[var(--bg-surface)]"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}

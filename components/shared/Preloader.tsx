@@ -28,7 +28,7 @@ export default function Preloader() {
       {isVisible ? (
         <motion.div
           layout={false}
-          className="fixed inset-0 z-[9999] grid place-items-center bg-[#04040a]"
+          className="fixed inset-0 z-[9999] grid place-items-center bg-[var(--bg-base)]"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{
@@ -36,7 +36,7 @@ export default function Preloader() {
             transition: { duration: 0.35, ease: "easeInOut" },
           }}
         >
-          <span className="bg-gradient-to-r from-[#6d28d9] to-[#22d3ee] bg-clip-text font-mono text-2xl font-semibold text-transparent">
+          <span className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text font-mono text-2xl font-semibold text-transparent">
             HS
           </span>
         </motion.div>

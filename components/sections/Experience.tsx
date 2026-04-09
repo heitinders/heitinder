@@ -116,7 +116,7 @@ function DesktopExperience() {
         <div ref={listRef} className="relative">
           <motion.div
             aria-hidden
-            className="absolute left-0 rounded-r-xl bg-white/[0.03] shadow-[0_0_24px_rgba(139,92,246,0.10)]"
+            className="absolute left-0 rounded-r-xl bg-white/[0.03] shadow-[0_0_24px_color-mix(in_srgb,var(--accent-glow)_10%,transparent)]"
             animate={{ top: indicator.top, height: indicator.height }}
             transition={{ type: "spring", stiffness: 260, damping: 24, mass: 0.25 }}
             style={{ width: "100%" }}
@@ -153,7 +153,7 @@ function DesktopExperience() {
                   {item.period}
                 </div>
                 {activeItem ? (
-                  <div className="pointer-events-none absolute left-[-2px] top-0 h-full w-[2px] bg-[var(--accent-glow)] shadow-[0_0_12px_rgba(139,92,246,0.6)]" />
+                  <div className="pointer-events-none absolute left-[-2px] top-0 h-full w-[2px] bg-[var(--accent-glow)] shadow-[0_0_12px_color-mix(in_srgb,var(--accent-glow)_60%,transparent)]" />
                 ) : null}
               </button>
             );
@@ -182,7 +182,7 @@ function DesktopExperience() {
             ) : null}
 
             <div className="mt-4 flex flex-wrap items-center gap-3">
-              <span className="inline-flex rounded-full bg-[rgba(109,40,217,0.12)] px-3 py-1 font-mono text-xs text-[var(--accent-glow)]">
+              <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--accent-primary)_12%,transparent)] px-3 py-1 font-mono text-xs text-[var(--accent-glow)]">
                 {active.role}
               </span>
               <span className="text-sm text-[var(--text-secondary)]">
@@ -266,7 +266,7 @@ function MobileAccordion() {
                 >
                   <div className="border-t border-[var(--border)] px-5 py-4">
                     <div className="flex flex-wrap items-center gap-3">
-                      <span className="inline-flex rounded-full bg-[rgba(109,40,217,0.12)] px-3 py-1 font-mono text-xs text-[var(--accent-glow)]">
+                      <span className="inline-flex rounded-full bg-[color-mix(in_srgb,var(--accent-primary)_12%,transparent)] px-3 py-1 font-mono text-xs text-[var(--accent-glow)]">
                         {item.role}
                       </span>
                       <span className="text-sm text-[var(--text-secondary)]">

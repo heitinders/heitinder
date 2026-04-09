@@ -41,6 +41,7 @@ function NeuralVisual() {
       >
         <svg viewBox="0 0 420 280" className="h-full w-full">
           <defs>
+            {/* SVG stopColor cannot use CSS variables directly; keeping hardcoded values */}
             <linearGradient id="lineG" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#6d28d9" stopOpacity="0.8" />
               <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.8" />
@@ -89,6 +90,7 @@ function NeuralVisual() {
             { x: 340, y: 135, label: "UI" },
           ].map((node, i) => (
             <g key={node.label} filter="url(#glow)">
+              {/* SVG fill cannot use CSS variables directly; keeping hardcoded values */}
               <motion.circle
                 cx={node.x}
                 cy={node.y}
@@ -261,17 +263,17 @@ export default function AISection() {
           --angle: 0deg;
           background: conic-gradient(
             from var(--angle),
-            #6d28d9,
-            #22d3ee,
-            #6d28d9
+            var(--accent-primary),
+            var(--accent-secondary),
+            var(--accent-primary)
           );
           animation: spinAngle 8s linear infinite;
         }
 
         .ai-drift {
           background:
-            radial-gradient(circle at 20% 35%, rgba(109, 40, 217, 0.12), transparent 45%),
-            radial-gradient(circle at 78% 60%, rgba(109, 40, 217, 0.08), transparent 40%);
+            radial-gradient(circle at 20% 35%, color-mix(in srgb, var(--accent-primary) 12%, transparent), transparent 45%),
+            radial-gradient(circle at 78% 60%, color-mix(in srgb, var(--accent-primary) 8%, transparent), transparent 40%);
           filter: blur(18px);
           animation: driftBlob 14s ease-in-out infinite;
         }
