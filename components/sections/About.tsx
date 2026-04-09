@@ -192,7 +192,7 @@ export default function About() {
                             : { width: 0 }
                         }
                         style={{
-                          filter: "drop-shadow(0 0 18px rgba(109, 40, 217, 0.25))",
+                          boxShadow: "0 0 18px rgba(109, 40, 217, 0.25)",
                         }}
                       />
                     </div>

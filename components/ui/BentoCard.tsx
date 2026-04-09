@@ -38,7 +38,7 @@ export default function BentoCard({
         scale: 1.02,
         y: -4,
         borderColor: accentColor,
-        filter: `drop-shadow(0 16px 28px color-mix(in srgb, ${accentColor} 20%, transparent))`,
+        boxShadow: `0 16px 28px color-mix(in srgb, ${accentColor} 20%, transparent)`,
       }}
       layout={false}
       transition={{ type: "spring", stiffness: 220, damping: 22, mass: 0.35 }}

@@ -416,7 +416,7 @@ export default function HeroParallax() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
         poster="/hero-poster.jpg"
-        preload="auto"
+        preload="metadata"
         muted
         playsInline
         loop
@@ -532,7 +532,7 @@ export default function HeroParallax() {
               }}
             >
               <div
-                className="hero-parallax-panel-glow flex items-center gap-3 rounded-xl border bg-[var(--bg-surface)]/80 px-5 py-4 text-white backdrop-blur-[8px]"
+                className="hero-parallax-panel-glow flex items-center gap-3 rounded-xl border bg-[var(--bg-surface)]/80 px-5 py-4 text-white"
                 style={{ animationDelay: `${i * 0.5}s` }}
               >
                 <span className="text-[var(--accent-secondary)]">{panel.icon}</span>

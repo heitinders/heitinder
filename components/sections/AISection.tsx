@@ -115,12 +115,12 @@ function NeuralVisual() {
       </motion.div>
 
       <motion.div
-        className="absolute right-[8%] top-[14%] h-28 w-28 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl"
+        className="absolute right-[8%] top-[14%] h-28 w-28 rounded-2xl border border-white/10 bg-white/[0.05]"
         animate={{ y: [-8, 6, -8], rotate: [-3, 2, -3] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
-        className="absolute bottom-[10%] left-[8%] h-20 w-36 rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl"
+        className="absolute bottom-[10%] left-[8%] h-20 w-36 rounded-2xl border border-white/10 bg-white/[0.05]"
         animate={{ y: [6, -6, 6], rotate: [2, -2, 2] }}
         transition={{ duration: 6.5, repeat: Infinity, ease: "easeInOut" }}
       />

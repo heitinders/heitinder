@@ -64,7 +64,7 @@ export default function ProjectCard(props: ProjectCardProps) {
       className="group glass-card relative min-h-[78vh] overflow-hidden"
       whileHover={{
         scale: 1.01,
-        filter: `drop-shadow(0 30px 50px ${hexToRgba(accentFrom, 0.12)})`,
+        boxShadow: `0 30px 50px ${hexToRgba(accentFrom, 0.12)}`,
       }}
       layout={false}
       transition={{ type: "spring", stiffness: 200, damping: 22, mass: 0.35 }}
