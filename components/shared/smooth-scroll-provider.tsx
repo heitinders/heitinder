@@ -1,7 +1,11 @@
 "use client";
 
 import Lenis from "@studio-freight/lenis";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function SmoothScrollProvider({
   children,
@@ -18,17 +22,27 @@ export function SmoothScrollProvider({
       infinite: false,
     });
 
-    let frame = 0;
+    // Lenis notifies ScrollTrigger on every scroll frame
+    lenis.on("scroll", ScrollTrigger.update);
 
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = window.requestAnimationFrame(raf);
-    };
+    // CRITICAL: store as named variable so gsap.ticker.remove() can find it.
+    // An inline arrow cannot be removed and leaks on every hot reload.
+    const lenisRaf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(lenisRaf);
+    gsap.ticker.lagSmoothing(0);
 
-    frame = window.requestAnimationFrame(raf);
+    // iOS Safari: prevent touch inertia from causing unpredictable scroll events
+    ScrollTrigger.normalizeScroll(true);
+
+    // Refresh after fonts load so GSAP pin positions use correct element dimensions.
+    // Guard against unmount before fonts resolve (happens on every hot reload in dev).
+    let mounted = true;
+    document.fonts.ready.then(() => { if (mounted) ScrollTrigger.refresh(); });
 
     return () => {
-      window.cancelAnimationFrame(frame);
+      mounted = false;
+      gsap.ticker.remove(lenisRaf);
+      ScrollTrigger.normalizeScroll(false);
       lenis.destroy();
     };
   }, []);
