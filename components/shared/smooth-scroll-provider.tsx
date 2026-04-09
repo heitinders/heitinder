@@ -31,9 +31,6 @@ export function SmoothScrollProvider({
     gsap.ticker.add(lenisRaf);
     gsap.ticker.lagSmoothing(0);
 
-    // iOS Safari: prevent touch inertia from causing unpredictable scroll events
-    ScrollTrigger.normalizeScroll(true);
-
     // Refresh after fonts load so GSAP pin positions use correct element dimensions.
     // Guard against unmount before fonts resolve (happens on every hot reload in dev).
     let mounted = true;
@@ -42,7 +39,6 @@ export function SmoothScrollProvider({
     return () => {
       mounted = false;
       gsap.ticker.remove(lenisRaf);
-      ScrollTrigger.normalizeScroll(false);
       lenis.destroy();
     };
   }, []);

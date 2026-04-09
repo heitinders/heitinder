@@ -85,7 +85,10 @@ body::before {
 }
 
 .gpu-scroll-layer {
-  transform: translateZ(0);
+  /* transform: translateZ(0) removed — creates a stacking context
+     that breaks GSAP ScrollTrigger pin positioning. The pin uses
+     position: fixed internally, which doesn't work inside a
+     transformed ancestor. */
 }
 
 @keyframes shimmer {
@@ -94,6 +97,47 @@ body::before {
   }
   100% {
     background-position: -20% 0;
+  }
+}
+
+/* ─── HeroParallax ─────────────────────────────────────────── */
+
+.hero-parallax-chevron {
+  animation: hero-chevron-bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes hero-chevron-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.hero-parallax-panel {
+  pointer-events: none;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.hero-parallax-panel-glow {
+  border-color: rgba(75, 158, 255, 0.2);
+  animation: hero-panel-pulse 3s ease-in-out infinite;
+}
+
+@keyframes hero-panel-pulse {
+  0%,
+  100% {
+    border-color: rgba(75, 158, 255, 0.2);
+    box-shadow: 0 0 0 0 rgba(75, 158, 255, 0);
+  }
+  50% {
+    border-color: rgba(75, 158, 255, 0.8);
+    box-shadow: 0 0 12px 0 rgba(75, 158, 255, 0.15);
   }
 }
 

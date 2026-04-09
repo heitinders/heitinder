@@ -140,31 +140,43 @@ function ContactForm() {
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
       <div className="grid gap-4 sm:grid-cols-2">
-        <input
-          type="text"
-          name="name"
+        <div>
+          <label htmlFor="contact-name" className="sr-only">Your name</label>
+          <input
+            id="contact-name"
+            type="text"
+            name="name"
+            required
+            placeholder="Your name"
+            disabled={status === "sending"}
+            className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
+          />
+        </div>
+        <div>
+          <label htmlFor="contact-email" className="sr-only">Your email</label>
+          <input
+            id="contact-email"
+            type="email"
+            name="email"
+            required
+            placeholder="Your email"
+            disabled={status === "sending"}
+            className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
+          />
+        </div>
+      </div>
+      <div>
+        <label htmlFor="contact-message" className="sr-only">Your message</label>
+        <textarea
+          id="contact-message"
+          name="message"
           required
-          placeholder="Your name"
+          rows={4}
+          placeholder="Tell me about your project..."
           disabled={status === "sending"}
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
-        />
-        <input
-          type="email"
-          name="email"
-          required
-          placeholder="Your email"
-          disabled={status === "sending"}
-          className="w-full rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
+          className="w-full resize-none rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
         />
       </div>
-      <textarea
-        name="message"
-        required
-        rows={4}
-        placeholder="Tell me about your project..."
-        disabled={status === "sending"}
-        className="w-full resize-none rounded-xl border border-[var(--border)] bg-[var(--bg-surface)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:border-[var(--accent-glow)] focus:outline-none disabled:opacity-50"
-      />
       {status === "error" && (
         <p className="text-sm text-red-400">
           Something went wrong. Please try again or email me directly.

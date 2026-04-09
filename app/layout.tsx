@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { DM_Serif_Display, Inter, JetBrains_Mono } from "next/font/google";
 
 import "@/styles/globals.css";
 import Footer from "@/components/shared/Footer";
@@ -18,6 +18,13 @@ const inter = Inter({
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
+  display: "swap",
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-dm-serif",
   display: "swap",
 });
 
@@ -83,7 +90,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetBrainsMono.variable} antialiased`}>
+      <body className={`${inter.variable} ${jetBrainsMono.variable} ${dmSerifDisplay.variable} antialiased`}>
+        <a href="#top" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-lg focus:bg-[var(--accent-primary)] focus:px-4 focus:py-2 focus:text-white">
+          Skip to content
+        </a>
         <JsonLd />
         <SmoothScrollProvider>
           <Preloader />

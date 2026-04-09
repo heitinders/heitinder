@@ -34,7 +34,7 @@ const SKILL_PANELS: SkillPanel[] = [
     label: "React & Next.js",
     tx: "-38vw", ty: "-18vh", tz: 60, ry: 14, rx: -4,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <rect x="3" y="3" width="7" height="7" rx="1" />
         <rect x="14" y="3" width="7" height="7" rx="1" />
         <rect x="3" y="14" width="7" height="7" rx="1" />
@@ -46,7 +46,7 @@ const SKILL_PANELS: SkillPanel[] = [
     label: "Three.js & WebGL",
     tx: "32vw", ty: "-22vh", tz: 90, ry: -18, rx: 6,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <path d="M12 2l-8 4.5v7L12 18l8-4.5v-7L12 2z" />
         <path d="M12 18v4.5" /><path d="M4 6.5L12 11l8-4.5" /><path d="M12 11v7" />
       </svg>
@@ -56,7 +56,7 @@ const SKILL_PANELS: SkillPanel[] = [
     label: "GSAP Animations",
     tx: "-30vw", ty: "12vh", tz: 40, ry: 10, rx: 8,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <line x1="3" y1="12" x2="21" y2="12" /><circle cx="8" cy="12" r="2" /><circle cx="16" cy="12" r="2" />
         <line x1="3" y1="6" x2="21" y2="6" strokeOpacity={0.4} />
         <line x1="3" y1="18" x2="21" y2="18" strokeOpacity={0.4} />
@@ -67,7 +67,7 @@ const SKILL_PANELS: SkillPanel[] = [
     label: "TypeScript",
     tx: "36vw", ty: "8vh", tz: 70, ry: -12, rx: -5,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
         <path d="M3 3h18v18H3V3zm10.1 14.4v-1.7c.4.4 1 .7 1.6.7.8 0 1.2-.4 1.2-1 0-1.4-3-.9-3-3.1 0-1.2.9-2 2.2-2 .6 0 1.1.1 1.5.4v1.6c-.4-.3-.9-.5-1.4-.5-.7 0-1.1.3-1.1.9 0 1.3 3 .8 3 3.1 0 1.2-.9 2.1-2.3 2.1-.7 0-1.3-.2-1.7-.5zM7 10.5h1.8V17H10v-6.5h1.8V9H7v1.5z" />
       </svg>
     ),
@@ -76,7 +76,7 @@ const SKILL_PANELS: SkillPanel[] = [
     label: "UI Systems & Design",
     tx: "-12vw", ty: "26vh", tz: 50, ry: 6, rx: -8,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <rect x="3" y="3" width="18" height="18" rx="2" />
         <line x1="3" y1="9" x2="21" y2="9" /><line x1="9" y1="9" x2="9" y2="21" />
       </svg>
@@ -86,7 +86,7 @@ const SKILL_PANELS: SkillPanel[] = [
     label: "Performance & CWV",
     tx: "18vw", ty: "24vh", tz: 80, ry: -8, rx: 4,
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.5}>
         <circle cx="12" cy="14" r="8" /><path d="M12 14l3-5" strokeLinecap="round" />
         <line x1="12" y1="6" x2="12" y2="4" /><line x1="4" y1="14" x2="6" y2="14" />
         <line x1="18" y1="14" x2="20" y2="14" />
@@ -405,12 +405,15 @@ export default function HeroParallax() {
     >
       <div
         ref={progressBarRef}
+        role="progressbar"
+        aria-label="Scroll progress"
         className="fixed left-0 top-0 z-[100] h-[2px] w-full origin-left bg-[#4B9EFF]"
         style={{ transform: "scaleX(0)" }}
       />
 
       <video
         ref={videoRef}
+        aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
         poster="/hero-poster.jpg"
         preload="auto"
@@ -421,18 +424,20 @@ export default function HeroParallax() {
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
 
-      <canvas ref={canvasRef} className="pointer-events-none absolute inset-0 z-[2] h-full w-full" />
+      <canvas ref={canvasRef} aria-hidden="true" className="pointer-events-none absolute inset-0 z-[2] h-full w-full" />
 
       <div
+        aria-hidden="true"
         className="absolute inset-0 z-[1]"
         style={{ background: "linear-gradient(to bottom, transparent 0%, transparent 70%, rgba(0,0,0,0.8) 100%)" }}
       />
 
       <div
         ref={heroTextRef}
-        className="absolute inset-0 z-[5] flex flex-col items-center justify-center text-center"
+        className="absolute inset-0 z-[5] flex flex-col items-center justify-center px-6 text-center"
       >
-        <div className="glass-card mb-8 inline-flex items-center gap-2 rounded-full px-4 py-2">
+        {/* Availability badge */}
+        <div className="glass-card mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2">
           <span className="relative inline-flex h-2 w-2">
             <span className="absolute inset-0 animate-ping rounded-full bg-[#22c55e]" />
             <span className="relative h-2 w-2 rounded-full bg-[#22c55e]" style={{ boxShadow: "0 0 0 4px rgba(34,197,94,0.2)" }} />
@@ -442,12 +447,13 @@ export default function HeroParallax() {
           </span>
         </div>
 
+        {/* Headline */}
         <h1 className="mt-0">
           {HEADLINE_LINES.map((line, index) => (
             <span
               key={line}
               className={cn(
-                "block text-[clamp(3rem,8vw,7rem)] leading-[0.95] tracking-[-0.03em]",
+                "block text-[clamp(2.5rem,7vw,6.5rem)] leading-[0.95] tracking-[-0.03em]",
                 "font-[800] text-[var(--text-primary)]",
                 index === 2 && "gradient-text",
               )}
@@ -457,24 +463,28 @@ export default function HeroParallax() {
           ))}
         </h1>
 
+        {/* Name subtitle */}
         <p
-          className="mt-5 text-[clamp(1.1rem,2.5vw,1.6rem)] leading-[1.1] tracking-[-0.01em] text-white/70"
+          className="mt-4 text-[clamp(1rem,2vw,1.4rem)] leading-[1.1] tracking-[-0.01em] text-white/70"
           style={{ fontFamily: "var(--font-dm-serif), 'DM Serif Display', serif" }}
         >
           Heitinder Singh
         </p>
 
-        <p className="mt-5 font-mono text-[14px] tracking-[0.15em] text-[var(--text-primary)]/60 uppercase">
+        {/* Mono tagline */}
+        <p className="mt-4 font-mono text-[13px] tracking-[0.15em] text-[var(--text-primary)]/60 uppercase">
           Enterprise-grade frontend &middot; Startup-speed shipping &middot; AI-native
         </p>
 
-        <p className="mt-5 max-w-[520px] text-[16px] leading-[1.7] text-[var(--text-primary)]/55">
+        {/* Bio — hidden on very short screens */}
+        <p className="mt-4 hidden max-w-[520px] text-[15px] leading-[1.6] text-[var(--text-primary)]/55 sm:block">
           Senior Frontend Engineer who built trading platforms at the Federal
           Reserve and BNY Mellon, then shipped 4 AI-powered SaaS products.
           I engineer experiences that perform at scale.
         </p>
 
-        <div className="mt-9 flex flex-col items-center gap-4 sm:flex-row">
+        {/* CTAs */}
+        <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row">
           <MagneticButton />
           <a
             href="#contact"
@@ -484,9 +494,10 @@ export default function HeroParallax() {
           </a>
         </div>
 
-        <div className="mt-10 flex flex-col items-center gap-2 text-white/50">
+        {/* Scroll indicator */}
+        <div className="mt-8 flex flex-col items-center gap-2 text-white/50">
           <span className="text-xs tracking-[0.2em] uppercase">Scroll to explore</span>
-          <svg className="hero-parallax-chevron h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.5}>
+          <svg aria-hidden="true" className="hero-parallax-chevron h-5 w-5" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth={1.5}>
             <path d="M5 8l5 5 5-5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
