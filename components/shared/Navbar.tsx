@@ -6,7 +6,6 @@ import {
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
-  useSpring,
 } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 
@@ -34,12 +33,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState<string>("projects");
   const prevScrollY = useRef(0);
   const drawerPanelRef = useRef<HTMLDivElement>(null);
-  const { scrollY, scrollYProgress } = useScroll();
-  const progressScaleX = useSpring(scrollYProgress, {
-    stiffness: 180,
-    damping: 22,
-    mass: 0.2,
-  });
+  const { scrollY } = useScroll();
 
   useEffect(() => {
     let frame = 0;
@@ -122,13 +116,6 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.div
-        layout={false}
-        aria-hidden
-        className="fixed top-0 left-0 right-0 z-[101] h-px origin-left bg-[var(--accent-primary)]"
-        style={{ scaleX: progressScaleX }}
-      />
-
       <motion.header
         layout={false}
         className="fixed inset-x-0 top-0 z-[100]"
@@ -138,24 +125,19 @@ export default function Navbar() {
       >
         <motion.div
           layout={false}
-          className="border-b"
+          className="border-b backdrop-blur-md"
           initial={false}
           animate={containerAnimate}
           transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
           style={{ borderBottomWidth: 1 }}
         >
-          <div className="mx-auto flex h-18 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
+          <div className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:h-16 sm:px-6">
             <a
               href="#top"
-             
-              className="cursor-pointer font-mono text-[18px] font-medium tracking-tight"
+              className="cursor-pointer text-[15px] font-medium text-[var(--text-primary)]"
               aria-label="Go to top"
             >
-              <span
-                className="bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)] bg-clip-text text-transparent"
-              >
-                Heitinder Singh
-              </span>
+              Heitinder Singh
             </a>
 
             <nav className="hidden items-center justify-center gap-1 md:flex" aria-label="Primary navigation">
@@ -165,34 +147,26 @@ export default function Navbar() {
                   <a
                     key={item.href}
                     href={item.href}
-                   
                     className={cn(
-                      "relative px-3 py-2 text-[14px] tracking-[0.05em] uppercase",
-                      "text-white/60 transition-colors",
-                      "after:absolute after:left-3 after:right-3 after:bottom-1 after:h-px after:origin-left after:bg-[var(--text-primary)] after:content-['']",
-                      "after:scale-x-0 hover:text-[var(--text-primary)] hover:after:scale-x-100 after:transition-transform after:duration-200",
-                      isActive && "text-[var(--text-primary)] after:scale-x-100",
+                      "relative px-3 py-2 text-[13px] transition-colors",
+                      "text-[var(--text-secondary)]",
+                      "hover:text-[var(--text-primary)]",
+                      isActive && "text-[var(--text-primary)]",
                     )}
                   >
                     {item.label}
+                    {isActive && (
+                      <span className="absolute bottom-1 left-3 right-3 h-px bg-[var(--text-primary)]" />
+                    )}
                   </a>
                 );
               })}
             </nav>
 
             <div className="hidden items-center gap-3 md:flex">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 px-3 py-1.5 text-xs text-emerald-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-70" />
-                  <span className="relative h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
-                <span className="tracking-[0.04em]">Open to work</span>
-              </div>
-
               <a
                 href="#contact"
-
-                className="rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-5 py-2 text-sm font-semibold text-[var(--bg-base)] shadow-[0_8px_20px_rgba(201,169,110,0.25)] transition-shadow hover:shadow-[0_8px_28px_rgba(201,169,110,0.35)]"
+                className="rounded-full bg-[var(--accent-glow)] px-4 py-1.5 text-[13px] font-medium text-[var(--bg-base)] transition-opacity hover:opacity-90"
               >
                 Let&apos;s Talk
               </a>
@@ -200,7 +174,6 @@ export default function Navbar() {
 
             <button
               type="button"
-             
               aria-expanded={isDrawerOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={isDrawerOpen ? "Close menu" : "Open menu"}
@@ -210,20 +183,20 @@ export default function Navbar() {
               <span className="sr-only">Menu</span>
               <motion.span
                 layout={false}
-                className="absolute h-px w-6 bg-white"
-                animate={isDrawerOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -6 }}
+                className="absolute h-px w-5 bg-white"
+                animate={isDrawerOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -5 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
               />
               <motion.span
                 layout={false}
-                className="absolute h-px w-6 bg-white"
+                className="absolute h-px w-5 bg-white"
                 animate={isDrawerOpen ? { opacity: 0 } : { opacity: 1 }}
                 transition={{ duration: 0.15 }}
               />
               <motion.span
                 layout={false}
-                className="absolute h-px w-6 bg-white"
-                animate={isDrawerOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 6 }}
+                className="absolute h-px w-5 bg-white"
+                animate={isDrawerOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 5 }}
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
               />
             </button>
@@ -245,21 +218,20 @@ export default function Navbar() {
               layout={false}
               id="mobile-nav-drawer"
               ref={drawerPanelRef}
-              className="absolute inset-0 grid place-items-center bg-[var(--bg-surface)]"
+              className="absolute inset-0 grid place-items-center bg-[var(--bg-base)]"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 220, damping: 26, mass: 0.35 }}
               onClick={(event) => event.stopPropagation()}
             >
-              <nav className="flex flex-col items-center gap-8" aria-label="Mobile navigation">
+              <nav className="flex flex-col items-center gap-2" aria-label="Mobile navigation">
                 {NAV_ITEMS.map((item, index) => (
                   <motion.a
                     layout={false}
                     key={item.href}
                     href={item.href}
-                   
-                    className="text-center text-3xl font-light tracking-[0.08em] text-[var(--text-primary)] uppercase"
+                    className="py-4 text-center text-[17px] font-normal tracking-wide text-[var(--text-secondary)] transition-colors hover:text-[var(--text-primary)]"
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
@@ -271,11 +243,10 @@ export default function Navbar() {
                 ))}
                 <a
                   href="#contact"
-                 
-                  className="mt-4 rounded-full border border-emerald-400/30 px-4 py-2 text-sm text-emerald-300"
+                  className="mt-6 rounded-full bg-[var(--accent-glow)] px-5 py-2 text-[13px] font-medium text-[var(--bg-base)]"
                   onClick={() => setIsDrawerOpen(false)}
                 >
-                  Open to work
+                  Let&apos;s Talk
                 </a>
               </nav>
             </motion.div>
