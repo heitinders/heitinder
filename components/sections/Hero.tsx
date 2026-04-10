@@ -141,7 +141,7 @@ export default function Hero() {
             </div>
 
             {/* Bio */}
-            <p data-animate className="mt-6 max-w-lg text-[15px] leading-[1.7] text-[var(--text-secondary)]">
+            <p data-animate className="mt-6 max-w-lg text-[17px] leading-[1.47] tracking-[-0.01em] text-[var(--text-secondary)]">
               Built trading platforms at the Federal Reserve and BNY Mellon,
               then shipped 4 AI-powered SaaS products. I engineer experiences
               that perform at scale.
@@ -151,14 +151,14 @@ export default function Hero() {
             <div data-animate className="mt-8 flex flex-wrap items-center gap-3">
               <MagneticButton
                 href="#work"
-                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-glow)] px-7 py-3.5 text-sm font-semibold text-[var(--bg-base)] transition-opacity hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-full bg-[var(--accent-glow)] px-7 py-3.5 text-sm font-semibold text-[var(--bg-base)] transition-opacity hover:opacity-90 will-change-transform"
               >
                 See What I&apos;ve Shipped
                 <span aria-hidden className="text-[var(--bg-base)]/60">&darr;</span>
               </MagneticButton>
               <a
                 href="#contact"
-                className="rounded-full border border-[var(--border)] px-6 py-3.5 text-sm font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--accent-glow)]/40"
+                className="rounded-full border border-[var(--border)] px-7 py-3.5 text-sm font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--accent-glow)]/40"
               >
                 Book a Call <span aria-hidden>&rarr;</span>
               </a>
@@ -169,7 +169,7 @@ export default function Hero() {
               {TRUST_CHIPS.map((chip) => (
                 <span
                   key={chip}
-                  className="rounded-full border border-[var(--border)] bg-[var(--bg-surface)]/40 px-3.5 py-1.5 font-mono text-[11px] tracking-[0.04em] text-[var(--text-muted)]"
+                  className="rounded-full border border-[var(--border)] bg-[var(--bg-surface)]/40 px-3.5 py-1.5 font-mono text-[12px] tracking-[0.02em] text-[var(--text-muted)]"
                 >
                   {chip}
                 </span>
@@ -190,11 +190,11 @@ export default function Hero() {
                 </p>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]/40 p-4">
+                <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-surface)]/40 p-4">
                   <p className="font-mono text-2xl font-bold text-[var(--text-primary)]">12+</p>
                   <p className="mt-1 text-[12px] text-[var(--text-muted)]">Years experience</p>
                 </div>
-                <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-surface)]/40 p-4">
+                <div className="rounded-2xl border border-[var(--border)] bg-[var(--bg-surface)]/40 p-4">
                   <p className="font-mono text-2xl font-bold text-[var(--text-primary)]">4</p>
                   <p className="mt-1 text-[12px] text-[var(--text-muted)]">SaaS products</p>
                 </div>
@@ -204,16 +204,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll hint — bottom center */}
-      <div
-        data-animate
-        className="absolute bottom-6 left-1/2 z-[1] hidden -translate-x-1/2 flex-col items-center gap-2 sm:flex"
-      >
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--text-muted)]">
-          Scroll
-        </span>
-        <div className="h-8 w-px bg-gradient-to-b from-[var(--text-muted)] to-transparent" />
-      </div>
     </section>
   );
 }

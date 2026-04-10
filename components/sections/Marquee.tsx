@@ -64,7 +64,7 @@ function MarqueeRow({
   const durationSeconds = segmentWidth > 0 ? segmentWidth / speed : 30;
 
   return (
-    <div className="marquee-row group relative h-[44px] overflow-hidden border-y border-[var(--border)] bg-[var(--bg-surface)]">
+    <div className="marquee-row group relative h-[38px] overflow-hidden border-y border-[var(--border)]">
       <div className="marquee-mask absolute inset-0" />
 
       <div
@@ -100,7 +100,7 @@ function MarqueeItem({ item, index }: { item: string; index: number }) {
     <div className="flex items-center">
       <span
         className={cn(
-          "marquee-item px-4 font-mono text-[clamp(14px,2vw,18px)] tracking-[0.1em] uppercase transition-colors duration-200",
+          "marquee-item px-4 font-mono text-[13px] tracking-[0.05em] uppercase transition-colors duration-200",
           outlined ? "marquee-outlined" : "text-[var(--text-muted)]",
         )}
       >
@@ -108,9 +108,9 @@ function MarqueeItem({ item, index }: { item: string; index: number }) {
       </span>
       <span
         aria-hidden
-        className="px-2 text-[12px] text-[var(--accent-primary)]/80 sm:text-[13px]"
+        className="px-4 text-[10px] text-[var(--text-muted)]"
       >
-        ◆
+        ·
       </span>
     </div>
   );
@@ -118,10 +118,10 @@ function MarqueeItem({ item, index }: { item: string; index: number }) {
 
 export default function Marquee() {
   return (
-    <section className="w-full overflow-hidden bg-[var(--bg-surface)] py-2">
-      <MarqueeRow items={rowOne} direction="left" speed={40} rowKey="row-1" />
+    <section className="w-full overflow-hidden py-4 sm:py-5">
+      <MarqueeRow items={rowOne} direction="left" speed={25} rowKey="row-1" />
       <div className="h-px bg-[var(--border)]" />
-      <MarqueeRow items={rowTwo} direction="right" speed={30} rowKey="row-2" />
+      <MarqueeRow items={rowTwo} direction="right" speed={20} rowKey="row-2" />
 
       <style jsx>{`
         .marquee-row {
