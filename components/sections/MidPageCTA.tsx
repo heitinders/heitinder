@@ -8,44 +8,36 @@ export default function MidPageCTA() {
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
 
   return (
-    <div ref={ref} className="py-16">
+    <section ref={ref} className="py-20 sm:py-28 lg:py-36">
       <motion.div
         className="mx-auto max-w-3xl px-6 text-center"
         initial={{ opacity: 0, y: 18 }}
         animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="glass-card relative overflow-hidden rounded-2xl px-8 py-12 sm:px-12">
-          <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-amber-500/10 via-transparent to-orange-500/10"
-            aria-hidden
-          />
-          <div className="relative z-[1]">
-            <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-tight tracking-[-0.02em] text-[var(--text-primary)]">
-              Need a senior engineer who{" "}
-              <span className="gradient-text">ships</span>?
-            </h3>
-            <p className="mx-auto mt-4 max-w-md text-[15px] leading-relaxed text-[var(--text-secondary)]">
-              Open to contracts, AI product collaborations, and technical
-              advisory. Based in NYC/NJ, available globally.
-            </p>
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-glow)] px-8 py-4 text-sm font-semibold text-[var(--bg-base)] shadow-[0_14px_36px_rgba(201,169,110,0.3)]"
-              >
-                Let&apos;s Talk <span aria-hidden>→</span>
-              </a>
-              <a
-                href="mailto:heitinder.js@gmail.com"
-                className="rounded-full border border-[var(--border)] px-6 py-3.5 text-sm text-[var(--text-primary)] transition-colors hover:border-[var(--accent-glow)]"
-              >
-                heitinder.js@gmail.com
-              </a>
-            </div>
-          </div>
+        <h3 className="text-[clamp(2rem,5vw,3.5rem)] font-[700] leading-[1.07] tracking-[-0.025em] text-[var(--text-primary)]">
+          Need a senior engineer who{" "}
+          <span className="gradient-text">ships</span>?
+        </h3>
+        <p className="mx-auto mt-4 max-w-lg text-[17px] leading-[1.47] tracking-[-0.01em] text-[var(--text-secondary)]">
+          Open to contracts, AI product collaborations, and technical
+          advisory. Based in NYC/NJ, available globally.
+        </p>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="#contact"
+            className="rounded-full bg-[var(--accent-glow)] px-8 py-4 text-sm font-semibold text-[var(--bg-base)]"
+          >
+            Let&apos;s Talk
+          </a>
+          <a
+            href="mailto:heitinder.js@gmail.com"
+            className="rounded-full border border-[var(--border)] px-6 py-3.5 text-sm text-[var(--text-primary)] transition-colors hover:border-[var(--accent-glow)]"
+          >
+            heitinder.js@gmail.com
+          </a>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }

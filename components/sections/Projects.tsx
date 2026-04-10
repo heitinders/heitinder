@@ -9,19 +9,19 @@ export default function Projects() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="work" className="px-6 py-28">
-      <div className="mx-auto max-w-7xl">
+    <section id="work" className="py-20 sm:py-28 lg:py-36">
+      <div className="mx-auto max-w-5xl px-6">
         <div className="mb-12">
-          <p className="font-mono text-[11px] tracking-[0.2em] text-[var(--text-muted)] uppercase">
+          <p className="text-[13px] font-mono uppercase tracking-[0.15em] text-[var(--text-muted)] mb-4">
             02 / SELECTED WORK
           </p>
-          <h2 className="mt-4 text-[clamp(2rem,5vw,4rem)] font-extrabold leading-[1.02] tracking-[-0.03em] text-[var(--text-primary)]">
+          <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-[700] leading-[1.07] tracking-[-0.025em] text-[var(--text-primary)]">
             Products I&apos;ve{" "}
             <span className="gradient-text">Built &amp; Shipped</span>.
           </h2>
         </div>
 
-        <div className="space-y-8 sm:space-y-10">
+        <div className="flex flex-col gap-16 sm:gap-20 lg:gap-24">
           {PROJECTS.map((project, index) => (
             <motion.div
               layout={false}
